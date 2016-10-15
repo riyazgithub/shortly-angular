@@ -8,8 +8,7 @@ angular.module('shortly', [
 .config(function ($routeProvider, $httpProvider) {
   $routeProvider
     .when('/', {
-      templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      redirectTo: '/links'
     })
     .when('/signin', {
       templateUrl: 'app/auth/signin.html',
@@ -21,7 +20,12 @@ angular.module('shortly', [
     })
     .when('/links', {
       templateUrl: 'app/links/links.html',
-      controller: 'LinksController'
+      controller: 'LinksController',
+      resolve: {
+        links: function(Links) {
+          return Links.getAll();
+        }
+      }
     })
     .when('/shorten', {
       templateUrl: 'app/shorten/shorten.html',
