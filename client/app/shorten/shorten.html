@@ -6,16 +6,16 @@
     <li><a href='#/' class='index'>All Links</a></li>
     <li><a href='#/shorten' class='create'>Shorten</a></li>
   </ul>
-    <a href='/logout' class='logout'>Logout</a>
+    <a class='logout' ng-click='signout()'>Logout</a>
   </div>
 
   <div class='creator' ng-controller='ShortenController'>
-    <form ng-submit='postLinks()'>
-        <input class='text' type='text' ng-model='url'>
+    <form name='linkForm' ng-submit='addLink()'>
+        <input class='text' type='url' ng-model='link.url' ng-pattern={{regex}} required>
         <input type='submit' value='Shorten'>
     </form>
     <img class='spinner' src='../../assets/spiffygif_46x46.gif' ng-show='showSpin'>
-    <div class='message'></div>
+    <div class='message error' ng-show='linkForm.$error.url'>Please ensure that your URL is valid</div>
     <div class='link' ng-repeat='link in links'>
       <img src='../../assets/redirect_icon.png'/>
       <div class='info'>
