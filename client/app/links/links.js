@@ -5,11 +5,22 @@ angular.module('shortly.links', [])
     $location.path('/signin');
   }
   $scope.data = {};
-  console.log('da links', links);
   $scope.data.links = links;
 
   $scope.signout = function () {
-    console.log('signing out');
     Auth.signout();
   };
+})
+.directive('shortened-link', function() {
+  return {
+    // template: 'Name: {{customer.name}} Address: {{customer.address}}'
+    template:  `<img src='../../assets/redirect_icon.png'/>
+      <div class='info'>
+        <div class='visits'><span class='count' >{{link.visits}}</span>Visits</div>
+        <div class='title'>{{link.title}}</div>
+        <div class='original'>{{link.url}}</div>
+        <a href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
+      </div>`
+  };
 });
+

@@ -17,13 +17,8 @@
     <img class='spinner' src='../../assets/spiffygif_46x46.gif' ng-show='showSpin'>
     <div class='message error' ng-show='linkForm.$error.url'>Please ensure that your URL is valid</div>
     <div class='link' ng-repeat='link in links'>
-      <img src='../../assets/redirect_icon.png'/>
-      <div class='info'>
-        <div class='visits'><span class='count' >{{link.visits}}</span>Visits</div>
-        <div class='title'>{{link.title}}</div>
-        <div class='original'>{{link.url}}</div>
-        <a href='{{link.baseUrl}}/{{link.code}}'>{{link.baseUrl}}/{{link.code}}</a>
-      </div>
+      <!-- custom directive: shortened link -->
+      <div shortened-link></div>
     </div>
   </div>
 
