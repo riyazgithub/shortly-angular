@@ -8,11 +8,13 @@
     </ul>
       <a class='logout' ng-click='signout()'>Logout</a>
     </div>
-    <div id='container'></div>
+    <div>
+      <input type = 'text' ng-model='search' >
+    </div>
   <!-- </script> -->
 
   <!-- <script id='link' type='text/x-handlebars-template'> -->
-  <div class='link' ng-repeat='link in data.links | orderBy: "-visits"'>
+  <div class='link' ng-repeat='link in data.links | orderBy: "-visits" | filter:search'>
     <img src='../../assets/redirect_icon.png'/>
     <div class='info'>
       <div class='visits'><span class='count' >{{link.visits}}</span>Visits</div>

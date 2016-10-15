@@ -11,7 +11,7 @@
 
   <div class='creator' ng-controller='ShortenController'>
     <form name='linkForm' ng-submit='addLink()'>
-        <input class='text' type='url' ng-model='link.url' ng-pattern={{regex}} required>
+        <input class='text' type='url' ng-model='link.url' required>
         <input type='submit' value='Shorten'>
     </form>
     <img class='spinner' src='../../assets/spiffygif_46x46.gif' ng-show='showSpin'>
