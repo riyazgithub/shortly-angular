@@ -11,9 +11,8 @@ angular.module('shortly.links', [])
     Auth.signout();
   };
 })
-.directive('shortened-link', function() {
+.directive('shortenedLink', function() {
   return {
-    // template: 'Name: {{customer.name}} Address: {{customer.address}}'
     template:  `<img src='../../assets/redirect_icon.png'/>
       <div class='info'>
         <div class='visits'><span class='count' >{{link.visits}}</span>Visits</div>
